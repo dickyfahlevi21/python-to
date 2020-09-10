@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        cliweather=cliweather_dicky.main:cli
+    

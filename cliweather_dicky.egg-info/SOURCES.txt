@@ -1,0 +1,7 @@
+setup.py
+cliweather_dicky.egg-info/PKG-INFO
+cliweather_dicky.egg-info/SOURCES.txt
+cliweather_dicky.egg-info/dependency_links.txt
+cliweather_dicky.egg-info/entry_points.txt
+cliweather_dicky.egg-info/requires.txt
+cliweather_dicky.egg-info/top_level.txt
