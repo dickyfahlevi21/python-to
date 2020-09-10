@@ -1,6 +1,12 @@
-import aiohttp, asyncio, json
+import aiohttp, asyncio, json, os
 from datetime import datetime
+from os.path import join, dirname
+from dotenv import load_dotenv
+
 now = datetime.now()
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+api = os.environ.get("API_KEY")
 
 
 async def fetch(session, url):
@@ -9,7 +15,7 @@ async def fetch(session, url):
 
 async def main():
     async with aiohttp.ClientSession() as session:
-        weather = await fetch(session, 'https://api.openweathermap.org/data/2.5/weather?q=jakarta&appid=1cf94d299d59174a55dcbfc7af185e2c')
+        weather = await fetch(session, f'https://api.openweathermap.org/data/2.5/weather?q=jakarta&appid={api}')
         data_weather = json.loads(weather)
         temperature = f"{data_weather['weather'][0]['main']}, {data_weather['weather'][0]['description']}"
         sunrise = datetime.fromtimestamp(data_weather['sys']['sunrise']).strftime("%A, %B %d, %Y %H:%M:%S %p")
